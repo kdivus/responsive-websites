@@ -155,12 +155,43 @@ html {
   margin: 4rem 1rem;
 }
 
+.gallery-link::before {
+  content: '';
+  position: absolute;
+  top: 2vw;
+  left: 80%;
+  width: 0.2rem;
+  height: 0;
+  background-color: #fff;
+  transition: height 0.5s;
+}
+
+.gallery-link:hover::before {
+  height: 80%;
+}
+
+.gallery-link::after {
+  content: '';
+  position: absolute;
+  top: 30%;
+  left: 2rem;
+  width: 0;
+  height: 0.2rem;
+  background-color: #fff;
+  transition: width 0.5s;
+}
+
+.gallery-link:hover::after {
+  width: 90%;
+}
+
 .food-img {
   width: 24vw;
   height: 15vw;
   object-fit: cover;
   opacity: 0.6;
-  /* background-color: #000; */
+  box-shadow: 0.3rem 0.3rem 0.1rem #e92929, 0.5rem 0.5rem 0.1rem #a2e946,
+    0.7rem 0.7rem 0.1rem #297ce9, 0.9rem 0.9rem 0.1rem #e92999;
 }
 
 .food-name {
@@ -172,6 +203,14 @@ html {
   text-transform: uppercase;
   letter-spacing: 0.1rem;
   color: #fff;
+  width: 0;
+  overflow: hidden;
+  transition: width 0.3s;
+}
+
+.gallery-link:hover .food-name {
+  width: 100%;
+  transition: width 1.5s 0.5s;
 }
 
 .food-description {
@@ -184,4 +223,13 @@ html {
   letter-spacing: 0.1rem;
   text-transform: uppercase;
   color: #fff;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s;
+}
+
+.gallery-link:hover .food-description {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 1s 1s;
 }
